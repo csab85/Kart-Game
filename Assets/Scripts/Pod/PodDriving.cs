@@ -28,7 +28,6 @@ public class PodDriving: MonoBehaviour
     [SerializeField] float reverseAcceleration;
     [SerializeField] float dragGrowth;
     [SerializeField] [Tooltip ("How fast the pod turns its body")] float angularAcceleration;
-    [SerializeField] [Tooltip ("How fast the force will change")] float turnSpeed;
     [SerializeField] float angularDragGrowth;
     
 
@@ -37,8 +36,6 @@ public class PodDriving: MonoBehaviour
 
     public bool force = false;
     public bool torque = false;
-
-    float actualAcc;
 
     #endregion
     //========================
@@ -61,7 +58,7 @@ public class PodDriving: MonoBehaviour
 
         if(direction < 0)
         {
-            rb.AddForce(new Vector3(0, 0, reverseAcceleration));
+            rb.AddForce(transform.forward * -reverseAcceleration);
         }
 
         rb.drag = rb.velocity.magnitude * dragGrowth;
@@ -72,7 +69,11 @@ public class PodDriving: MonoBehaviour
         if (side > 0)
         {
             rb.AddTorque(new Vector3(0, angularAcceleration, 0));
-            acceleration *= turnSpeed;
+        }
+
+        if (side < 0)
+        {
+            rb.AddTorque(new Vector3(0, -angularAcceleration, 0));
         }
 
         rb.angularDrag = rb.angularVelocity.magnitude * angularDragGrowth;
@@ -91,8 +92,6 @@ public class PodDriving: MonoBehaviour
     {
         //get components
         rb = GetComponent<Rigidbody>();
-
-        actualAcc = acceleration;
     }
 
     //Update
@@ -106,11 +105,6 @@ public class PodDriving: MonoBehaviour
         if (torque)
         {
             Turn(1);
-        }
-
-        else
-        {
-            acceleration = actualAcc;
         }
     }
 
