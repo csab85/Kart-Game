@@ -6,7 +6,7 @@ using UnityEditor.EditorTools;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class PodDriving: MonoBehaviour
+public class PodMovement: MonoBehaviour
 {
     //IMPORTS
     //========================
@@ -34,9 +34,6 @@ public class PodDriving: MonoBehaviour
     //components
     Rigidbody rb;
 
-    public bool force = false;
-    public bool torque = false;
-
     #endregion
     //========================
 
@@ -49,7 +46,7 @@ public class PodDriving: MonoBehaviour
     /// Moves the pod forward or backwards
     /// </summary>
     /// <param name="direction">If positive the pod goes forward, if negative goes backwards</param>
-    void Move(float direction)
+    public void Move(float direction)
     {
         if(direction > 0)
         {
@@ -64,7 +61,11 @@ public class PodDriving: MonoBehaviour
         rb.drag = rb.velocity.magnitude * dragGrowth;
     }
 
-    void Turn(float side)
+    /// <summary>
+    /// Makes the pod turn on its y axis
+    /// </summary>
+    /// <param name="side">If positive turns to the right, if negative to the left</param>
+    public void Turn(float side)
     {
         if (side > 0)
         {
@@ -97,15 +98,7 @@ public class PodDriving: MonoBehaviour
     //Update
     void FixedUpdate()
     {
-        if (force)
-        {
-            Move(1);
-        }
 
-        if (torque)
-        {
-            Turn(1);
-        }
     }
 
     #endregion
