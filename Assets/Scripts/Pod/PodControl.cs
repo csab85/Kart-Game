@@ -54,6 +54,11 @@ public class PodControl : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0)
         {
             podMovement.Turn(Input.GetAxis("Horizontal"));
+
+            if (Input.GetAxis("Horizontal") >= 1)
+            {
+                GetComponent<PodMovement>().turning = true;
+            }
         }
 
         else

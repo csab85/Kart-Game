@@ -80,13 +80,11 @@ public class PodMovement: MonoBehaviour
         if (side > 0)
         {
             rb.AddTorque(new Vector3(0, angularAcceleration, 0));
-            turning = true;
         }
 
         if (side < 0)
         {
             rb.AddTorque(new Vector3(0, -angularAcceleration, 0));
-            turning = true;
         }
 
         rb.angularDrag = rb.angularVelocity.magnitude * angularDragGrowth;
