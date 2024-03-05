@@ -1,18 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PodAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //IMPORTS
+    //========================
+    #region
+    
+    //Game Objects
+    [SerializeField] GameObject pod;
+
+    //Components
+    CinemachineVirtualCamera cam;
+
+    #endregion
+    //========================
+
+
+    //STATS AND VALUES
+    //========================
+    #region
+
+
+
+    #endregion
+    //========================
+
+
+    //FUNCTIONS
+    //========================
+    #region
+
+
+
+    #endregion
+    //========================
+
+
+    //RUNNING
+    //========================
+    #region
+
+    //Start
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    //Update
     void Update()
     {
-        
+        cam = GetComponent<CinemachineVirtualCamera>();
     }
+
+    #endregion
+    //========================
+
+
 }
