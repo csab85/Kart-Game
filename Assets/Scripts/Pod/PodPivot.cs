@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PodControl : MonoBehaviour
+public class PodPivot: MonoBehaviour
 {
     //IMPORTS
     //========================
     #region
 
-    [Header ("Script Imports")]
-    [SerializeField] PodMovement podMovement;
+
 
     #endregion
     //========================
@@ -29,6 +28,8 @@ public class PodControl : MonoBehaviour
     //========================
     #region
 
+
+
     #endregion
     //========================
 
@@ -44,22 +45,10 @@ public class PodControl : MonoBehaviour
     }
 
     //Update
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            podMovement.Move(Input.GetAxis("Vertical"));
-        }
-
-        if (Input.GetAxis("Horizontal") != 0)
-        {
-            podMovement.Turn(Input.GetAxis("Horizontal"));
-        }
-
-        else
-        {
-            GetComponent<PodMovement>().turning = false;
-        }
+        transform.position = transform.parent.transform.position + transform.parent.transform.forward * 2;
+        transform.rotation = transform.parent.transform.rotation;
     }
 
     #endregion

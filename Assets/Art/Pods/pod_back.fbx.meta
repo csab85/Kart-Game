@@ -3,7 +3,82 @@ guid: 9912b93d4fdfdf7499e50a09096d08d1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Banco_Base_color
+    second: {fileID: 2800000, guid: 1e25b41eb4a2b374ba79bf9712616738, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Banco_Metallic
+    second: {fileID: 2800000, guid: 5fa77c6df07652d43a9337a7b561b94d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Banco_Normal_OpenGL
+    second: {fileID: 2800000, guid: e5681198059247d48a02af33c697e421, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Banco_Roughness
+    second: {fileID: 2800000, guid: add02b86a5eff56428c27ec364dabc55, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Laranja_Base_color
+    second: {fileID: 2800000, guid: 88f4a3b8c5497d3479d52e5bbaa99ab3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Laranja_Metallic
+    second: {fileID: 2800000, guid: 88ebf56d4d1622441b9a525013afbaaa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Laranja_Normal_OpenGL
+    second: {fileID: 2800000, guid: 7cd3cc6636074c14ebbb18b448b96d05, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Laranja_Roughness
+    second: {fileID: 2800000, guid: 0c3689631e76ed24caf77b7caff5b2ef, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Cinza_Base_color
+    second: {fileID: 2800000, guid: 1a3a502fa8a985c41a9ff010675dcc74, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Cinza_Metallic
+    second: {fileID: 2800000, guid: a21b57f330f40fe47837a9a7b4832b0a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Cinza_Roughness
+    second: {fileID: 2800000, guid: fe675111ee8902b4ba4edb82046a19c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Preto_Base_color
+    second: {fileID: 2800000, guid: 59273b84137724b4f81afa11cb08db78, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Preto_Metallic
+    second: {fileID: 2800000, guid: 6f33e046dda1dc94a926191104af5d21, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Preto_Normal_OpenGL
+    second: {fileID: 2800000, guid: e9659f8e674bbcc4c8432bfd381d8bc9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Preto_Roughness
+    second: {fileID: 2800000, guid: ce9260e385bbdd8479224cc3e8b7e106, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -29,6 +29,8 @@ public class PodMovement: MonoBehaviour
     [SerializeField] float dragGrowth;
     [SerializeField] [Tooltip ("How fast the pod turns its body")] float angularAcceleration;
     [SerializeField] float angularDragGrowth;
+    [SerializeField][Tooltip("How quickly the pod changes its movement direction")] float turnBoost;
+    [HideInInspector] public bool turning = false;
     
 
     //components
@@ -50,7 +52,15 @@ public class PodMovement: MonoBehaviour
     {
         if(direction > 0)
         {
-            rb.AddForce(transform.forward * acceleration);
+            if (!turning)
+            {
+                rb.AddForce(transform.forward * acceleration); //CORRGIR
+            }
+
+            if (turning)
+            {
+                rb.AddForce(transform.forward * acceleration * turnBoost);
+            }
         }
 
         if(direction < 0)
@@ -70,11 +80,13 @@ public class PodMovement: MonoBehaviour
         if (side > 0)
         {
             rb.AddTorque(new Vector3(0, angularAcceleration, 0));
+            turning = true;
         }
 
         if (side < 0)
         {
             rb.AddTorque(new Vector3(0, -angularAcceleration, 0));
+            turning = true;
         }
 
         rb.angularDrag = rb.angularVelocity.magnitude * angularDragGrowth;

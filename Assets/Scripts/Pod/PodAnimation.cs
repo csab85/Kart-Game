@@ -8,12 +8,10 @@ public class PodAnimation : MonoBehaviour
     //IMPORTS
     //========================
     #region
-    
-    //Game Objects
-    [SerializeField] GameObject pod;
 
     //Components
-    CinemachineVirtualCamera cam;
+    [SerializeField] CinemachineVirtualCamera cam;
+    Rigidbody rb;
 
     #endregion
     //========================
@@ -33,8 +31,6 @@ public class PodAnimation : MonoBehaviour
     //========================
     #region
 
-
-
     #endregion
     //========================
 
@@ -46,13 +42,16 @@ public class PodAnimation : MonoBehaviour
     //Start
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     //Update
     void Update()
     {
-        cam = GetComponent<CinemachineVirtualCamera>();
+        cam.m_Lens.FieldOfView = 60 + Mathf.Abs(rb.velocity.z) * 2;
+
+        cam.m_Lens.Dutch = rb.velocity.x * 1.5f;
+        print(rb.velocity);
     }
 
     #endregion
