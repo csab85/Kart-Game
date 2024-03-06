@@ -61,7 +61,7 @@ public class PodControl : MonoBehaviour
             }
         }
 
-        else
+        if (Input.GetAxis("Horizontal") == 0)
         {
             GetComponent<PodMovement>().turning = false;
         }

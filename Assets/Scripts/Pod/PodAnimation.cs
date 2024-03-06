@@ -48,10 +48,15 @@ public class PodAnimation : MonoBehaviour
     //Update
     void Update()
     {
-        cam.m_Lens.FieldOfView = 60 + Mathf.Abs(rb.velocity.z) * 2;
+        //Camera
+        cam.m_Lens.FieldOfView = 60 + Mathf.Abs(rb.velocity.magnitude) * 2;
 
         cam.m_Lens.Dutch = rb.velocity.x * 1.5f;
-        print(rb.velocity);
+        
+
+        //Pod
+        //transform.rotation = Quaternion.Euler(new Vector3(, transform.rotation.y, rb.velocity.x));
+
     }
 
     #endregion
