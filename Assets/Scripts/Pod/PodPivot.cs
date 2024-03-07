@@ -18,7 +18,7 @@ public class PodPivot: MonoBehaviour
     //========================
     #region
 
-
+    [SerializeField] Vector3 distance;
 
     #endregion
     //========================
@@ -45,10 +45,10 @@ public class PodPivot: MonoBehaviour
     }
 
     //Update
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = transform.parent.transform.position + transform.parent.transform.forward * 2;
-        transform.rotation = transform.parent.transform.rotation;
+        transform.position = GameObject.Find("PlayerPod").transform.position;
+        transform.rotation = GameObject.Find("PlayerPod").transform.rotation;
     }
 
     #endregion
