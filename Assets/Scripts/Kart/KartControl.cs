@@ -46,24 +46,9 @@ public class KartControl : MonoBehaviour
     //Update
     void FixedUpdate()
     {
-        if (Input.GetAxis("Vertical") != 0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            kartMovement.Move(Input.GetAxis("Vertical"));
-        }
-
-        if (Input.GetAxis("Horizontal") != 0)
-        {
-            kartMovement.Turn(Input.GetAxis("Horizontal"));
-
-            if (Input.GetAxis("Horizontal") >= 1)
-            {
-                GetComponent<KartMovement>().turning = true;
-            }
-        }
-
-        else
-        {
-            GetComponent<KartMovement>().turning = false;
+            GetComponent<KartPowers>().UsePower();
         }
     }
 

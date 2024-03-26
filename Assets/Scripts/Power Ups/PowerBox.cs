@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpBox : MonoBehaviour
+public class PowerBox : MonoBehaviour
 {
+    [SerializeField]
+
     // Start is called before the first frame update
     void Start()
     {
