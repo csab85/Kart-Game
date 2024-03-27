@@ -1,3 +1,4 @@
+using KartGame.KartSystems;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,13 +39,27 @@ public class KartPowers : MonoBehaviour
             case 2:
                 GameObject missile = Instantiate(powersObjects[activePower]);
                 missile.transform.position = transform.Find("MissilePivot").transform.position;
+                missile.transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
                 missile.SetActive(true);
                 break;
 
             case 3:
                 GameObject missileAuto = Instantiate(powersObjects[activePower]);
                 missileAuto.transform.position = transform.Find("MissilePivot").transform.position;
+                missileAuto.transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
                 missileAuto.SetActive(true);
+                break;
+
+            case 4:
+                GameObject[] kartList = GameObject.Find("GameManager2").GetComponent<KartManager>().karts;
+
+                foreach (GameObject kart in kartList)
+                {
+                    if (kart != gameObject)
+                    {
+                        //dar slow nos kart aqui
+                    }
+                }
                 break;
         }
 

@@ -12,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Cam1
+  - Cam2
   - PostProcessing
   - Ground
   - Environment
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cam1
+    uniqueID: 50306193
+    locked: 0
+  - name: Cam2
+    uniqueID: 2970433383
     locked: 0

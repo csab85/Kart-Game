@@ -8,17 +8,17 @@ public class StartKart : MonoBehaviour
 {
 
     [SerializeField] GameObject[] karts;
-    [SerializeField] CinemachineVirtualCamera cam;
+    [SerializeField] CinemachineVirtualCamera[] cams;
 
     int selectedNum;
 
     // Start is called before the first frame update
     void Start()
     {
-        selectedNum = Mathf.RoundToInt(KartSelect.selectedKartNumber);
+        selectedNum = Mathf.RoundToInt(SelectKart.selectedKartNumber);
 
-        cam.Follow = karts[selectedNum].transform;
-        cam.LookAt = karts[selectedNum].transform;
+        cams[0].Follow = karts[selectedNum].transform;
+        cams[0].LookAt = karts[selectedNum].transform;
         karts[selectedNum].SetActive(true);
     }
 

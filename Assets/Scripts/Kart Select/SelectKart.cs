@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class KartSelect : MonoBehaviour
+public class SelectKart : MonoBehaviour
 {
     [HideInInspector] public float xPosit = 0;
     float newXPosit;
