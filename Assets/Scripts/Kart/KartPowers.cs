@@ -11,6 +11,7 @@ public class KartPowers : MonoBehaviour
 {
     [SerializeField] GameObject[] powersObjects;
     [SerializeField] public int activePower;
+    public string powerButton;
 
     [SerializeField]
     public Dictionary<string, float> powersDict = new Dictionary<string, float>()
@@ -53,13 +54,10 @@ public class KartPowers : MonoBehaviour
             case 4:
                 GameObject[] kartList = GameObject.Find("GameManager2").GetComponent<KartManager>().karts;
 
-                foreach (GameObject kart in kartList)
-                {
-                    if (kart != gameObject)
-                    {
-                        //dar slow nos kart aqui
-                    }
-                }
+                GameObject hourglass = Instantiate(powersObjects[activePower]);
+                hourglass.transform.parent = gameObject.transform;
+                hourglass.SetActive(true);                
+
                 break;
         }
 
@@ -67,8 +65,10 @@ public class KartPowers : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PowerBox")
+        if (other.tag == "PowerBox" && other.GetComponent<PowerBox>().visible)
         {
+            other.GetComponent<PowerBox>().visible = false;
+
             System.Random rand = new System.Random();
 
             int randPower = rand.Next(1, powersObjects.Length);
@@ -86,6 +86,9 @@ public class KartPowers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown(powerButton))
+        {
+            UsePower(); 
+        }
     }
 }

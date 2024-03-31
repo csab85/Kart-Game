@@ -7,7 +7,7 @@ using UnityEngine;
 public class StartKart : MonoBehaviour
 {
 
-    [SerializeField] GameObject[] karts;
+    [SerializeField] public GameObject[] karts;
     [SerializeField] CinemachineVirtualCamera[] cams;
 
     int selectedNum1;

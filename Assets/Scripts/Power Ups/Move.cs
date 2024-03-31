@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Carroussel : MonoBehaviour
+public class Move : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,6 +13,6 @@ public class Carroussel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0.3f, 0));
+        transform.Translate(-transform.right * Time.deltaTime * 35, Space.World);
     }
 }

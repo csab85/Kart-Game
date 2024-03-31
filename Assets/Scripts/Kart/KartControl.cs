@@ -45,6 +45,7 @@ public class KartControl : MonoBehaviour
             GetComponent<KeyboardInput>().TurnInputName = "HorizontalP1";
             GetComponent<KeyboardInput>().AccelerateButtonName = "AccelerateP1";
             GetComponent<KeyboardInput>().BrakeButtonName = "BrakeP1";
+            GetComponent<KartPowers>().powerButton = "PowerP1";
         }
 
         else
@@ -52,6 +53,7 @@ public class KartControl : MonoBehaviour
             GetComponent<KeyboardInput>().TurnInputName = "HorizontalP2";
             GetComponent<KeyboardInput>().AccelerateButtonName = "AccelerateP2";
             GetComponent<KeyboardInput>().BrakeButtonName = "BrakeP2";
+            GetComponent<KartPowers>().powerButton = "PowerP2";
         }
     }
 

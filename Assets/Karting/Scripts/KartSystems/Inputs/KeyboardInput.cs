@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace KartGame.KartSystems {
 
@@ -15,7 +16,7 @@ namespace KartGame.KartSystems {
             {
                 Accelerate = Input.GetButton(AccelerateButtonName),
                 Brake = Input.GetButton(BrakeButtonName),
-                TurnInput = Input.GetAxis(TurnInputName)
+                TurnInput = Input.GetAxis(TurnInputName),
             };
         }
     }
