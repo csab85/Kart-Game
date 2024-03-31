@@ -7,10 +7,19 @@ namespace KartGame.UI
     {
         [Tooltip("What is the name of the scene we want to load when clicking the button?")]
         public string SceneName;
+        public bool firstKartSelected = false;
 
         public void LoadTargetScene() 
         {
-            SceneManager.LoadSceneAsync(SceneName);
+            if (firstKartSelected)
+            {
+                SceneManager.LoadSceneAsync(SceneName);
+            }
+
+            else
+            {
+                firstKartSelected = true;
+            }
         }
     }
 }

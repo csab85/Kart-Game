@@ -9,7 +9,7 @@ public class PowerBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        print("oi");
     }
 
     // Update is called once per frame

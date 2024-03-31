@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using KartGame.KartSystems;
 using UnityEngine;
 
 public class KartControl : MonoBehaviour
@@ -8,8 +9,7 @@ public class KartControl : MonoBehaviour
     //========================
     #region
 
-    [Header ("Script Imports")]
-    [SerializeField] KartMovement kartMovement;
+    [SerializeField][Range(1, 2)] public int playerNumber;
 
     #endregion
     //========================
@@ -40,16 +40,25 @@ public class KartControl : MonoBehaviour
     //Start
     void Start()
     {
+        if (playerNumber == 1)
+        {
+            GetComponent<KeyboardInput>().TurnInputName = "HorizontalP1";
+            GetComponent<KeyboardInput>().AccelerateButtonName = "AccelerateP1";
+            GetComponent<KeyboardInput>().BrakeButtonName = "BrakeP1";
+        }
 
+        else
+        {
+            GetComponent<KeyboardInput>().TurnInputName = "HorizontalP2";
+            GetComponent<KeyboardInput>().AccelerateButtonName = "AccelerateP2";
+            GetComponent<KeyboardInput>().BrakeButtonName = "BrakeP2";
+        }
     }
 
     //Update
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<KartPowers>().UsePower();
-        }
+
     }
 
     #endregion

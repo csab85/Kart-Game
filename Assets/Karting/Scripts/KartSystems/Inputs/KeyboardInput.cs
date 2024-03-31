@@ -4,6 +4,8 @@ namespace KartGame.KartSystems {
 
     public class KeyboardInput : BaseInput
     {
+        [SerializeField] GameObject kart;
+
         public string TurnInputName = "Horizontal";
         public string AccelerateButtonName = "Accelerate";
         public string BrakeButtonName = "Brake";
@@ -13,7 +15,7 @@ namespace KartGame.KartSystems {
             {
                 Accelerate = Input.GetButton(AccelerateButtonName),
                 Brake = Input.GetButton(BrakeButtonName),
-                TurnInput = Input.GetAxis("Horizontal")
+                TurnInput = Input.GetAxis(TurnInputName)
             };
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using KartGame.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ public class SelectKart : MonoBehaviour
 {
     [HideInInspector] public float xPosit = 0;
     float newXPosit;
-    public static float selectedKartNumber;
+    public static float selectedKartNumber1;
+    public static float selectedKartNumber2;
 
     public void SwitchCarR()
     {
@@ -42,6 +44,14 @@ public class SelectKart : MonoBehaviour
 
         transform.position = new Vector3(newXPosit, transform.position.y, transform.position.z);
 
-        selectedKartNumber = xPosit/15;
+        if(!GameObject.Find("ButtonStart").GetComponent<LoadSceneButton>().firstKartSelected)
+        {
+            selectedKartNumber1 = xPosit/15;
+        }
+        
+        else
+        {
+            selectedKartNumber2 = xPosit/15;
+        }
     }
 }
