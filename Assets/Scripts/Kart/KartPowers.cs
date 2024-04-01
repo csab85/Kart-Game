@@ -59,6 +59,15 @@ public class KartPowers : MonoBehaviour
                 hourglass.SetActive(true);                
 
                 break;
+
+            case 5:
+                GameObject wormhole = Instantiate(powersObjects[activePower]);
+                wormhole.transform.position = transform.Find("MissilePivot").transform.position;
+                wormhole.transform.rotation = transform.rotation;
+                wormhole.SetActive(true);
+
+                break;
+
         }
 
     }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PowerBox
   - Kart
+  - CrashMode
+  - Waypoint
   layers:
   - Default
   - TransparentFX
