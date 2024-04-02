@@ -12,16 +12,17 @@ public class KartPowers : MonoBehaviour
     [SerializeField] GameObject[] powersObjects;
     [SerializeField] public int activePower;
     public string powerButton;
+    public int waypointCheck;
 
     [SerializeField]
-    public Dictionary<string, float> powersDict = new Dictionary<string, float>()
+    public Dictionary<float, string> powersDict = new Dictionary<float, string>()
     {
-        {"none", 0},
-        {"landmine", 1},
-        {"missile", 2},
-        {"auto missile", 3},
-        {"hourglass", 4},
-        {"wormhole", 5}
+        {0, "none"},
+        {1, "landmine"},
+        {2, "missile"},
+        {3, "auto missile"},
+        {4, "hourglass"},
+        {5, "wormhole"}
     };
 
     public void UsePower()
@@ -48,6 +49,7 @@ public class KartPowers : MonoBehaviour
                 GameObject missileAuto = Instantiate(powersObjects[activePower]);
                 missileAuto.transform.position = transform.Find("MissilePivot").transform.position;
                 missileAuto.transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
+                missileAuto.GetComponent<Move>().waypointNum = waypointCheck/2;
                 missileAuto.SetActive(true);
                 break;
 
@@ -70,6 +72,7 @@ public class KartPowers : MonoBehaviour
 
         }
 
+        activePower = 0;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -83,6 +86,16 @@ public class KartPowers : MonoBehaviour
             int randPower = rand.Next(1, powersObjects.Length);
 
             activePower = randPower;
+        }
+
+        if (other.tag == "WaypointCheck")
+        {
+            waypointCheck ++;
+
+            if (waypointCheck >= 8)
+            {
+                waypointCheck = 0;
+            }
         }
     }
 

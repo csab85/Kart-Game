@@ -11,7 +11,7 @@ public class HijackAll : MonoBehaviour
 
         foreach (GameObject kart in karts)
         {
-            if (kart != gameObject)
+            if (kart != gameObject.transform.parent.gameObject)
             {
                 GetComponent<Hijack>().DisableControl(kart, 2);
             }

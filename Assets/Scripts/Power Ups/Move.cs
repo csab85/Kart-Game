@@ -6,7 +6,7 @@ public class Move : MonoBehaviour
 {
     [SerializeField] bool chasing;
     [SerializeField] GameObject[] waypoints;
-    [SerializeField] int waypointNum = 0;
+    [SerializeField] public int waypointNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,9 @@ public class Move : MonoBehaviour
     {
         if (chasing)
         {
-            float newPositX = Mathf.MoveTowards(transform.position.x, waypoints[waypointNum].transform.position.x, 0.1f);
-            float newPositY = Mathf.MoveTowards(transform.position.y, waypoints[waypointNum].transform.position.y, 0.1f);
-            float newPositZ = Mathf.MoveTowards(transform.position.z, waypoints[waypointNum].transform.position.z, 0.1f);
+            float newPositX = Mathf.MoveTowards(transform.position.x, waypoints[waypointNum].transform.position.x, 0.2f);
+            float newPositY = Mathf.MoveTowards(transform.position.y, waypoints[waypointNum].transform.position.y, 0.2f);
+            float newPositZ = Mathf.MoveTowards(transform.position.z, waypoints[waypointNum].transform.position.z, 0.2f);
 
             transform.position = new Vector3(newPositX, newPositY, newPositZ);
         }
