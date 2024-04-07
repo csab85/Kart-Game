@@ -10,6 +10,9 @@ using UnityEngine;
 public class KartPowers : MonoBehaviour
 {
     [SerializeField] GameObject[] powersObjects;
+
+    [SerializeField] StartKart startKart;
+
     [SerializeField] public int activePower;
     public string powerButton;
     public int waypointCheck;
@@ -49,7 +52,15 @@ public class KartPowers : MonoBehaviour
                 GameObject missileAuto = Instantiate(powersObjects[activePower]);
                 missileAuto.transform.position = transform.Find("MissilePivot").transform.position;
                 missileAuto.transform.rotation = transform.rotation * Quaternion.Euler(0, 90, 0);
-                missileAuto.GetComponent<Move>().waypointNum = waypointCheck/2;
+
+                foreach (GameObject kart in startKart.karts)
+                {
+                    if (kart != gameObject && kart.activeSelf)
+                    {
+                        missileAuto.GetComponent<Move>().targetTransform = kart.transform;
+                    }
+                }
+
                 missileAuto.SetActive(true);
                 break;
 

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Move : MonoBehaviour
 {
     [SerializeField] bool chasing;
-    [SerializeField] GameObject[] waypoints;
-    [SerializeField] public int waypointNum = 0;
+
+    [SerializeField] NavMeshAgent agent;
+
+    public Transform targetTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -19,29 +22,12 @@ public class Move : MonoBehaviour
     {
         if (chasing)
         {
-            float newPositX = Mathf.MoveTowards(transform.position.x, waypoints[waypointNum].transform.position.x, 0.2f);
-            float newPositY = Mathf.MoveTowards(transform.position.y, waypoints[waypointNum].transform.position.y, 0.2f);
-            float newPositZ = Mathf.MoveTowards(transform.position.z, waypoints[waypointNum].transform.position.z, 0.2f);
-
-            transform.position = new Vector3(newPositX, newPositY, newPositZ);
+            agent.SetDestination(targetTransform.position);
         }
 
         else
         {
             transform.Translate(-transform.right * Time.deltaTime * 35, Space.World);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Waypoint")
-        {
-            waypointNum++;
-
-            if (waypointNum >= waypoints.Length)
-            {
-                waypointNum = 0;
-            }
         }
     }
 }

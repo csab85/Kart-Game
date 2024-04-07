@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using KartGame.KartSystems;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KartControl : MonoBehaviour
@@ -19,7 +20,7 @@ public class KartControl : MonoBehaviour
     //========================
     #region
 
-
+    public int lapsCount;
 
     #endregion
     //========================
@@ -57,10 +58,12 @@ public class KartControl : MonoBehaviour
         }
     }
 
-    //Update
-    void FixedUpdate()
+    void OnTriggerEnter(Collider other)
     {
-
+        if (other.tag == "LapCounter")
+        {
+            lapsCount += 1;
+        }
     }
 
     #endregion
