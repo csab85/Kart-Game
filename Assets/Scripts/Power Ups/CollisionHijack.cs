@@ -16,10 +16,9 @@ public class CollisionHijack : MonoBehaviour
         {
             if (!collided)
             {
-                tag = "Killable";
                 GetComponent<Hijack>().DisableControl(other.gameObject, hijackDuration);
-                collided = true;
                 GetComponent<MeshRenderer>().enabled = false;
+                collided = true;
             }
         }
 
