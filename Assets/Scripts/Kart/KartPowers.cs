@@ -58,6 +58,7 @@ public class KartPowers : MonoBehaviour
                     if (kart != gameObject && kart.activeSelf)
                     {
                         missileAuto.GetComponent<Move>().targetTransform = kart.transform;
+                        missileAuto.GetComponent<CollisionHijack>().sender = gameObject;
                     }
                 }
 

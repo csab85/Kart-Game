@@ -5,11 +5,14 @@ using UnityEngine;
 public class CollisionHijack : MonoBehaviour
 {
     [SerializeField] float hijackDuration;
+
+    public GameObject sender;
+    
     bool collided = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && other.gameObject != sender)
         {
             if (!collided)
             {
